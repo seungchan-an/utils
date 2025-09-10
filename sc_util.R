@@ -220,7 +220,7 @@ BarPlot <- function(object, features = g, ncol = NULL, cols = NULL, error = "mea
                               axis.title.y = element_blank(),
                               axis.line.x = element_blank(),
                               axis.line.y = element_blank()) +
-                        scale_y_continuous(expand = expansion(mult = c(0,0.1))) + NoLegend() + rotate_x_text(45)
+                        scale_y_continuous(expand = expansion(mult = c(0,0.1))) + theme_no_legend() + rotate_x_text(45)
                 #p <- wrap_plots(list(h1, h2), widths = c(3,1))
                 plist[[n]] <- h2; n = n + 1
         }
@@ -426,7 +426,7 @@ fgsea_analysis <- function(loading, suffix = "", organism = "mouse",
     scale_fill_gradient2(low = "blue", high = "red") +
     geom_hline(yintercept = 0, linewidth = 3 / 8 / 1.07, color = "darkgray") +
     xlab("Rank") + ylab("Metric") + y_zero(0) +
-    theme_pub() & NoLegend()
+    theme_pub() & theme_no_legend()
   
   for(pw in fgsea_result$pathway) {
     pname <- pw; print(pw)

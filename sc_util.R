@@ -381,7 +381,7 @@ string_analysis <- function(gene_list, suffix = NULL, thr = 300) {
   table2ppt(x = res2[, -c(1,2,12,14,15)], file = paste("Fig STRING enrichment", suffix), append = T, font = "Arial", pointsize = 6)
 }
 
-fgsea_analysis <- function(loading, suffix = "",
+fgsea_analysis <- function(loading, suffix = "", organism = organism
                            category = c("C5", "H"), pathway_grep = "GOBP_|HALLMARK_|HP_",
                            max_size = 300, nes_cutoff = 2) {
   require(fgsea)
@@ -389,9 +389,9 @@ fgsea_analysis <- function(loading, suffix = "",
   require(data.table)
   require(export)
   
-  msigdbr_collections() %>% mutate(included = ifelse(gs_cat %in% category, "O", "")) %>% as.data.frame() %>% print()  
+  msigdbr_collections() %>% mutate(included = ifelse(gs_collection %in% category, "O", "")) %>% as.data.frame() %>% print()
   
-  sigs <- rbindlist(lapply(category, function(x) msigdbr(species = "mouse", category = x)))
+  sigs <- rbindlist(lapply(category, function(x) msigdbr(species = organism, category = x)))
   sigs <- split(sigs$gene_symbol, sigs$gs_name)
   sl <- sapply(sigs, length)
   sigs <- sigs[sl > 5 & sl < max_size]

@@ -381,7 +381,7 @@ string_analysis <- function(gene_list, suffix = NULL, thr = 300) {
   table2ppt(x = res2[, -c(1,2,12,14,15)], file = paste("Fig STRING enrichment", suffix), append = T, font = "Arial", pointsize = 6)
 }
 
-fgsea_analysis <- function(loading, suffix = "", organism = organism
+fgsea_analysis <- function(loading, suffix = "", organism = "mouse",
                            category = c("C5", "H"), pathway_grep = "GOBP_|HALLMARK_|HP_",
                            max_size = 300, nes_cutoff = 2) {
   require(fgsea)

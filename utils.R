@@ -78,7 +78,7 @@ theme_pub <- function(font_color = "black") {
 
   theme(
     plot.background = element_blank(),
-    plot.margin = margin(rep(0.03, 4), unit = "cm"),
+    plot.margin = ggplot2::margin(rep(0.03, 4), unit = "cm"),
     strip.background = element_blank(),
     panel.background = element_blank(),
     panel.border = element_rect(linewidth = line_width, fill = NA, color = font_color),
@@ -94,7 +94,7 @@ theme_pub <- function(font_color = "black") {
     axis.ticks.length = unit(0.05 * plot_factor, "cm"),
     legend.background = element_blank(),
     legend.box.background = element_blank(),
-    legend.margin = margin(rep(0.01, 4), unit = "cm"),
+    legend.margin = ggplot2::margin(rep(0.01, 4), unit = "cm"),
     legend.text = element_text(size = font_size - 1, family = font_family, color = font_color, face = font_face),
     legend.title = element_text(size = font_size - 1, family = font_family, color = font_color, face = font_face),
     legend.frame = element_rect(linewidth = line_width, color = font_color),

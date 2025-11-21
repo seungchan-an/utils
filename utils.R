@@ -65,13 +65,7 @@ library(ggsci)
 library(cowplot)
 library(grid)
 
-if(.Platform$OS.type == "windows") {
-  if(!"Arial" %in% names(windowsFonts())) {
-    windowsFonts(Arial = windowsFont("Arial"))
-    message("'Arial' was registered in windowsFonts()")
-  }
-}
-
+font_family = "sans"
 font_face = "plain"
 font_size = 8
 line_width = 0.75 / 2.14
@@ -88,12 +82,12 @@ theme_pub <- function(font_color = "black") {
     strip.background = element_blank(),
     panel.background = element_blank(),
     panel.border = element_rect(linewidth = line_width, fill = NA, color = font_color),
-    axis.title.x = element_text(size = font_size, family = "Arial", color = font_color, face = font_face),
-    axis.title.y = element_text(size = font_size, family = "Arial", color = font_color, angle = 90, face = font_face),
-    axis.text.x = element_text(size = font_size, family = "Arial", color = font_color, face = font_face),
-    axis.text.y = element_text(size = font_size, family = "Arial", color = font_color, face = font_face),
-    strip.text = element_text(size = font_size, family = "Arial", color = font_color, face = font_face),
-    plot.title = element_text(size = font_size, family = "Arial", face = font_face,
+    axis.title.x = element_text(size = font_size, family = font_family, color = font_color, face = font_face),
+    axis.title.y = element_text(size = font_size, family = font_family, color = font_color, angle = 90, face = font_face),
+    axis.text.x = element_text(size = font_size - 1, family = font_family, color = font_color, face = font_face),
+    axis.text.y = element_text(size = font_size - 1, family = font_family, color = font_color, face = font_face),
+    strip.text = element_text(size = font_size, family = font_family, color = font_color, face = font_face),
+    plot.title = element_text(size = font_size, family = font_family, face = font_face,
                               color = font_color, hjust = 0.5, vjust = 0.5),
     axis.line = element_blank(), axis.line.x = element_blank(), axis.line.y = element_blank(),
     axis.ticks = element_line(linewidth = line_width, color = font_color),
@@ -101,13 +95,13 @@ theme_pub <- function(font_color = "black") {
     legend.background = element_blank(),
     legend.box.background = element_blank(),
     legend.margin = margin(rep(0.01, 4), unit = "cm"),
-    legend.text = element_text(size = font_size - 1, family = "Arial", color = font_color, face = font_face),
-    legend.title = element_text(size = font_size - 1, family = "Arial", color = font_color, face = font_face),
+    legend.text = element_text(size = font_size - 1, family = font_family, color = font_color, face = font_face),
+    legend.title = element_text(size = font_size - 1, family = font_family, color = font_color, face = font_face),
     legend.frame = element_rect(linewidth = line_width, color = font_color),
     legend.ticks = element_line(linewidth = line_width, color = font_color),
     legend.ticks.length = unit(0.1 * plot_factor, "cm"),
     legend.key.width = unit(0.3 * plot_factor, "cm"), 
-    legend.key.height = unit(0.4 * plot_factor, "cm"),
+    legend.key.height = unit(0.3 * plot_factor, "cm"),
     legend.position = "right")
 }
 

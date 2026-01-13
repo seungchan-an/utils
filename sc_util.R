@@ -195,7 +195,7 @@ BarPlot <- function(object, features = g, ncol = NULL, cols = NULL, error = "mea
         if(!is.null(group.by)) { Idents(object) <- unlist(object[[group.by]]) }
         
         g_ex <- g_ex[, od, drop = FALSE]
-        df <- melt(t(as.matrix(g_ex)), varnames = c("cell", "gene"))
+        df <- reshape2::melt(t(as.matrix(g_ex)), varnames = c("cell", "gene"))
         
         df$ident <- rep(Idents(object)[od], nrow(df) / ncell)
         if(!is.null(split.by)) { df$split <- rep(unlist(object[[split.by]])[od],  nrow(df) / ncell) }

@@ -516,6 +516,27 @@ gprofiler_analysis <- function(gene_list, suffix = "", terms_of_interest = NULL,
 }
 
 
+# Function to detect outliers using Mahalanobis distance
+rm_outliers <- function(seu.obj, group.by = "seurat_clusters", thr = 0.999) {
+  detect_outliers <- function(red) {
+    cov_matrix <- cov(red)
+    center <- colMeans(red) # Mean of the coordinates
+    distances <- mahalanobis(red, center, cov_matrix)
+    
+    outliers <- which(distances > qchisq(thr, df = 2))  # 99.9% threshold for 2D
+    outliers
+  }
+  
+  idents <- seu.obj@meta.data[, "seurat_clusters"]
+  if(!is.factor(idents)) stop("Group is not factored")
+  
+  ols <- lapply(levels(idents),
+                function(x) detect_outliers(seu.obj@reductions[[DefaultDimReduc(seu.obj)]]@cell.embeddings[idents == x, ]))
+  
+  subset(seu.obj, cells = Cells(seu.obj)[!Cells(seu.obj) %in% names(unlist(ols))])
+}
+
+
 cat("Loaded:\n",
     " library ggplot2, ggpubr, patchwork, cowplot, reshape2 ...\n",
     " function BarPlot(), CompositionAnalysis(), Subcluster() ...\n",

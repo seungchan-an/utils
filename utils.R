@@ -170,3 +170,51 @@ gg_color_hue <- function(n) {
   hcl(h = hues, l = 65, c = 100)[1:n]
 }
 
+kelly_22 <- c(
+  "#F2F3F4", # white
+  "#222222", # black
+  "#F3C300", # yellow
+  "#875692", # purple
+  "#F38400", # orange
+  "#A1CAF1", # light blue
+  "#BE0032", # red
+  "#C2B280", # buff
+  "#848482", # gray
+  "#008856", # green
+  "#E68FAC", # purplish pink
+  "#0067A5", # blue
+  "#F99379", # yellowish pink
+  "#604E97", # violet
+  "#F6A600", # orange yellow
+  "#B3446C", # purplish red
+  "#DCD300", # greenish yellow
+  "#882D17", # reddish brown
+  "#8DB600", # yellow green
+  "#654522", # brown
+  "#E25822", # reddish orange
+  "#2B3D26"  # olive green
+)
+
+kelly_20 <- c(
+  "#F3C300", # yellow
+  "#875692", # purple
+  "#F38400", # orange
+  "#A1CAF1", # light blue
+  "#BE0032", # red
+  "#C2B280", # buff
+  "#848482", # gray
+  "#008856", # green
+  "#E68FAC", # purplish pink
+  "#0067A5", # blue
+  "#F99379", # yellowish pink
+  "#604E97", # violet
+  "#F6A600", # orange yellow
+  "#B3446C", # purplish red
+  "#DCD300", # greenish yellow
+  "#882D17", # reddish brown
+  "#8DB600", # yellow green
+  "#654522", # brown
+  "#E25822", # reddish orange
+  "#2B3D26"  # olive green
+)
+

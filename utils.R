@@ -78,10 +78,13 @@ theme_pub <- function(font_color = "black") {
 
   theme(
     plot.background = element_blank(),
-    plot.margin = ggplot2::margin(rep(0.03, 4), unit = "cm"),
+    plot.margin = ggplot2::margin(t = 0.1, r = 0.1, b = 0.1, l = 0.1, unit = "cm"),
     strip.background = element_blank(),
     panel.background = element_blank(),
     panel.border = element_rect(linewidth = line_width, fill = NA, color = font_color),
+    panel.grid = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
     axis.title.x = element_text(size = font_size, family = font_family, color = font_color, face = font_face),
     axis.title.y = element_text(size = font_size, family = font_family, color = font_color, angle = 90, face = font_face),
     axis.text.x = element_text(size = font_size - 1, family = font_family, color = font_color, face = font_face),
